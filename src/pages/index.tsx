@@ -6,12 +6,12 @@ import { api } from "~/utils/api";
 
 import { LoadingPage, LoadingSpinner } from "~/components/loadingSpinner";
 import { useState } from "react";
-import toast from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { PageLayout } from "~/components/layout";
 import { PostView } from "~/components/postview";
 
 const CreatePostWizard = () => {
-  const user = useUser();
+  const { user } = useUser();
   const [input, setInput] = useState("");
   const ctx = api.useContext();
   const { mutate, isLoading: isPosting } = api.posts.create.useMutation({
